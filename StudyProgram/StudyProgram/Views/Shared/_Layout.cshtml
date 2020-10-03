@@ -1,6 +1,221 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+            integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a331e1a03f.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    @*@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");*@
+
+* {
+	margin: 0;
+	padding: 0;
+	user-select: none;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+/* Container */
+.container {
+	display: grid;
+	height: 100vh;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 0.2fr 3.5fr;
+	grid-template-areas:
+		"header header header header"
+		"sidebar main main main";
+	grid-gap: 0.2rem;
+}
+
+/* container */
+
+/* header */
+header {
+	grid-area: header;
+	display: flex;
+	padding: 15px 20px;
+	justify-content: space-between;
+	position: sticky;
+	top: 0;
+	background-color: white;
+	z-index: 100;
+	box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+}
+
+.header__logo {
+	height: 40px;
+	border-radius: 20px;
+}
+
+.header__input {
+	display: flex;
+	align-items: center;
+	background-color: #eff2f5;
+	padding: 10px;
+	margin-left: 10px;
+	border-radius: 999px;
+}
+
+.header__input > input {
+	border: none;
+	background-color: transparent;
+	outline-width: 0;
+}
+
+.header__input > input:focus {
+	outline-width: 0;
+}
+
+.header__searchIcon {
+	color: lightgray;
+	font-size: 1.5rem;
+}
+
+.header__right {
+	display: flex;
+	align-items: center;
+}
+
+.header__info {
+	display: flex;
+	align-items: center;
+}
+
+.header_infoAva {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+}
+
+.header__infoDetails {
+	margin-left: 10px;
+	margin-right: 15px;
+}
+
+.header__infoDetails > p {
+	font-size: xx-small;
+}
+
+.header__nav {
+	display: flex;
+}
+
+.header__link {
+	text-decoration: none;
+	color: #333;
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+/* header */
+
+.sidebar {
+	grid-area: sidebar;
+	width: 250px;
+	height: 100%;
+	left: 0;
+	background: #1b1b1b;
+}
+
+nav ul {
+	height: 100%;
+	width: 100%;
+	list-style: none;
+}
+
+nav ul li {
+	line-height: 60px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a {
+	position: relative;
+	color: white;
+	text-decoration: none;
+	font-size: 1rem;
+	padding-left: 1.5rem;
+	font-weight: 500;
+	display: block;
+	width: 100%;
+	border-left: 3px solid transparent;
+}
+
+nav ul li.active a {
+	color: cyan;
+	background: #1e1e1e;
+	border-left-color: cyan;
+}
+
+nav ul ul {
+	position: static;
+	display: none;
+}
+
+nav ul .sidebar__showKey.show {
+	display: block;
+}
+
+nav ul .sidebar__showKhoa.show1 {
+	display: block;
+}
+
+nav ul .sidebar__showMajor.show2 {
+	display: block;
+}
+
+nav ul .sidebar__showUser.show3 {
+	display: block;
+}
+
+nav ul ul li {
+	line-height: 42px;
+	border-bottom: none;
+}
+
+nav ul ul li a {
+	font-size: 1rem;
+	color: #e6e6e6;
+	padding-left: 2.5rem;
+}
+
+nav ul li.active ul li a {
+	color: #e6e6e6;
+	background: #1b1b1b;
+	border-left-color: transparent;
+}
+
+nav ul li a span {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	font-size: 1rem;
+	transition: transform 0.4s;
+}
+
+nav ul li a span.rotate {
+	transform: translateY(-50%) rotate(-180deg);
+}
+
+nav ul ul li a:hover {
+	color: cyan !important;
+	background: #1e1e1e !important;
+}
+
+/* Main */
+
+main {
+	grid-area: main;
+}
+
+</style>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - StudyProgram</title>
@@ -9,7 +224,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">StudyProgram</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -27,7 +242,105 @@
                     </ul>
                 </div>
             </div>
+        </nav>*@
+        <header class="header">
+            <img src="https://login.thanglong.edu.vn/images/logotlu.jpg" alt="" class="header__logo">
+
+            @*<div class='header__input'>
+                <input type='text' />
+                <span class='fas fa-search header__searchIcon' />
+            </div>*@
+
+            @*<div class='header__right'>
+                <div class='header__info'>
+                    <img src="https://avatars2.githubusercontent.com/u/25322842?s=460&u=6812386aa300dbd383e675b1cb7cc0b24be9bbef&v=4"
+                         alt="" class="header_infoAva">
+                    <div class="header__infoDetails">
+                        <h4>Nam</h4>
+                        <p>admin</p>
+                    </div>
+                </div>
+
+                <div class="header__nav">
+                    <a href="#" class="header__link">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Sign Out
+                    </a>
+                </div>
+            </div>*@
+        </header>
+
+        <main class="main"></main>
+
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#">Trang Chủ</a></li>
+                <li>
+                    <a href="#" class="sidebar__keyBtn">
+                        Khóa
+                        <span class="fas fa-caret-down first"></span>
+                    </a>
+                    <ul class="sidebar__showKey">
+                        <li><a href="#">Danh sách khóa</a></li>
+                        <li><a href="#">Tạo khóa</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="sidebar__khoaBtn">
+                        Khoa
+                        <span class="fas fa-caret-down second"></span>
+                    </a>
+                    <ul class="sidebar__showKhoa">
+                        <li><a href="#">Danh sách khoa</a></li>
+                        <li><a href="#">Tạo khoa</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="sidebar__majorBtn">
+                        Chuyên ngành<span class="fas fa-caret-down three"></span>
+                    </a>
+                    <ul class="sidebar__showMajor">
+                        <li><a href="#">Danh sách Chuyên ngành</a></li>
+                        <li><a href="#">Tạo Chuyên ngành</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="sidebar__userBtn">
+                        Người dùng
+                        <span class="fas fa-caret-down four"></span>
+                    </a>
+                    <ul class="sidebar__showUser">
+                        <li><a href="#">Danh sách người dùng</a></li>
+                        <li><a href="#">Tạo tài khoản</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Chương trình học</a></li>
+            </ul>
         </nav>
+        </div>
+
+        <script>
+            $('.sidebar__keyBtn').click(function () {
+                $('nav ul .sidebar__showKey').toggleClass('show')
+                $('nav ul .first').toggleClass('rotate')
+            })
+            $('.sidebar__khoaBtn').click(function () {
+                $('nav ul .sidebar__showKhoa').toggleClass('show1')
+                $('nav ul .second').toggleClass('rotate')
+            })
+            $('.sidebar__majorBtn').click(function () {
+                $('nav ul .sidebar__showMajor').toggleClass('show2')
+                $('nav ul .three').toggleClass('rotate')
+            })
+            $('.sidebar__userBtn').click(function () {
+                $('nav ul .sidebar__showUser').toggleClass('show3')
+                $('nav ul .four').toggleClass('rotate')
+            })
+
+            $('nav ul li').click(function () {
+                $(this).addClass('active').siblings().removeClass('active')
+            })
+        </script>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
