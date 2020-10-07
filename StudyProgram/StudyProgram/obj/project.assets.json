@@ -6069,19 +6069,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\trinh\\.nuget\\packages\\": {}
+    "C:\\Users\\Laptop88\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dev\\.NetReact\\QLCTH\\StudyProgram\\StudyProgram\\StudyProgram.csproj",
+      "projectUniqueName": "D:\\QLCTH\\StudyProgram\\StudyProgram\\StudyProgram.csproj",
       "projectName": "StudyProgram",
-      "projectPath": "D:\\Dev\\.NetReact\\QLCTH\\StudyProgram\\StudyProgram\\StudyProgram.csproj",
-      "packagesPath": "C:\\Users\\trinh\\.nuget\\packages\\",
-      "outputPath": "D:\\Dev\\.NetReact\\QLCTH\\StudyProgram\\StudyProgram\\obj\\",
+      "projectPath": "D:\\QLCTH\\StudyProgram\\StudyProgram\\StudyProgram.csproj",
+      "packagesPath": "C:\\Users\\Laptop88\\.nuget\\packages\\",
+      "outputPath": "D:\\QLCTH\\StudyProgram\\StudyProgram\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\trinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Laptop88\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6128,16 +6128,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Dev\\.NetReact\\QLCTH\\StudyProgram\\StudyProgram\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
