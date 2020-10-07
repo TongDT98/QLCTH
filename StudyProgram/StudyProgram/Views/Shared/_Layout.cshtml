@@ -219,37 +219,55 @@ main {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - StudyProgram</title>
-    @*
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    *@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+    <header>
+        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">StudyProgram</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>*@
         <header class="header">
             <img src="https://login.thanglong.edu.vn/images/logotlu.jpg" alt="" class="header__logo">
 
-            <div class='header__input'>
-                    <input type='text' />
-                    <span class='fas fa-search header__searchIcon' />
-                </div>
+            @*<div class='header__input'>
+                <input type='text' />
+                <span class='fas fa-search header__searchIcon' />
+            </div>*@
 
-            <div class='header__right'>
-                    <div class='header__info'>
-                        <img src="https://avatars2.githubusercontent.com/u/25322842?s=460&u=6812386aa300dbd383e675b1cb7cc0b24be9bbef&v=4"
-                             alt="" class="header_infoAva">
-                        <div class="header__infoDetails">
-                            <h4>Nam</h4>
-                            <p>admin</p>
-                        </div>
-                    </div>
-
-                    <div class="header__nav">
-                        <a href="#" class="header__link">
-                            <i class="fas fa-sign-out-alt"></i>
-                            Sign Out
-                        </a>
+            @*<div class='header__right'>
+                <div class='header__info'>
+                    <img src="https://avatars2.githubusercontent.com/u/25322842?s=460&u=6812386aa300dbd383e675b1cb7cc0b24be9bbef&v=4"
+                         alt="" class="header_infoAva">
+                    <div class="header__infoDetails">
+                        <h4>Nam</h4>
+                        <p>admin</p>
                     </div>
                 </div>
+
+                <div class="header__nav">
+                    <a href="#" class="header__link">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Sign Out
+                    </a>
+                </div>
+            </div>*@
         </header>
 
         <main class="main"></main>
@@ -330,16 +348,14 @@ main {
         </main>
     </div>
 
-    @*
-        <footer class="border-top footer text-muted">
-            <div class="container">
-                &copy; 2020 - StudyProgram - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </div>
-        </footer>
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    *@
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - StudyProgram - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
