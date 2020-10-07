@@ -13,14 +13,14 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "D:\QLCTH\StudyProgram\StudyProgram\Views\_ViewImports.cshtml"
+#line 1 "D:\Dev\.NetReact\QLCTH\StudyProgram\StudyProgram\Views\_ViewImports.cshtml"
 using StudyProgram;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\QLCTH\StudyProgram\StudyProgram\Views\_ViewImports.cshtml"
+#line 2 "D:\Dev\.NetReact\QLCTH\StudyProgram\StudyProgram\Views\_ViewImports.cshtml"
 using StudyProgram.Models;
 
 #line default
@@ -62,7 +62,6 @@ using StudyProgram.Models;
             }
         }
         private global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.HeadTagHelper __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_HeadTagHelper;
-        private global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper;
         private global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper;
