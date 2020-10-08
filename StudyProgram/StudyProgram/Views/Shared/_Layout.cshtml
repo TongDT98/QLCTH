@@ -26,6 +26,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
+<style>
+    .render_body {
+        padding-bottom: 1rem !important;
+        margin-top: 65px;
+        margin-left: 63px;
+    }
+</style>
 <body>
     <section id="container" class="">
         <!--header start-->
@@ -215,7 +222,7 @@
         </aside>
         <!--sidebar end-->
         <div class="container">
-            <main role="main" class="pb-3">
+            <main role="main" class="render_body">
                 @RenderBody()
             </main>
         </div>
