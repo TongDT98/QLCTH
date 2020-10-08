@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thăng long</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-            integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-            crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a331e1a03f.js" crossorigin="anonymous"></script>
+    
     <link rel="shortcut icon" href="img/favicon.png">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- bootstrap theme -->
@@ -34,9 +31,9 @@
         <!--header start-->
 
         <header class="header dark-bg">
-            <div class="toggle-nav">
+            @*<div class="toggle-nav">
                 <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
-            </div>
+            </div>*@
 
             <!--logo start-->
             <a href="" class="logo">Thăng Long <span class="lite"></span></a>
@@ -65,13 +62,13 @@
                     <li id="mail_notificatoin_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="icon-envelope-l"></i>
-                            <span class="badge bg-important">5</span>
+                           
                         </a>
                         
                     </li>
                     <!-- inbox notificatoin end -->
                     <!-- alert notification start-->
-                    <li id="alert_notificatoin_bar" class="dropdown">
+                    @*<li id="alert_notificatoin_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
                             <i class="icon-bell-l"></i>
@@ -114,13 +111,14 @@
                                 <a href="#">See all notifications</a>
                             </li>
                         </ul>
-                    </li>
+                    </li>*@
                     <!-- alert notification end-->
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">                          
-                                <img src="~/img/anh2.jpg" />
+                            <span class="profile-ava">
+                                
+                                <img src="~/img/user.jpg" />
                             </span>
                             <span class="username">TongDT</span>
                             <b class="caret"></b>
@@ -134,7 +132,7 @@
                                 <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
                             </li>
                             <li>
-                                <a href="#"><i class="icon_clock_alt"></i> Timeline</a>
+                                <a href="#">@*<i class="icon_clock_alt"></i>*@ Timeline</a>
                             </li>
                             
                             <li>
@@ -161,64 +159,46 @@
                 <ul class="sidebar-menu">
                     <li class="">
                         <a class="" href="index.html">
-                            <i class="icon_house_alt"></i>
+                            @*<i class="icon_house_alt"></i>*@
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;" class="">
-                            <i class="icon_document_alt"></i>
+                            @*<i class="icon_document_alt"></i>*@
                             <span>Khóa</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
+                            @*<span class="menu-arrow arrow_carrot-right"></span>*@
                         </a>
                         <ul class="sub">
-                            <li><a class="" href="form_component.html">Form Elements</a></li>
-                            <li><a class="" href="form_validation.html">Form Validation</a></li>
+                            <li><a class="" href="form_component.html">Danh sách Khóa</a></li>
+                            <li><a class="" href="form_validation.html"></a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
-                        <a href="javascript:;" class="">
-                            <i class="icon_desktop"></i>
-                            <span>UI Fitures</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
+                        <a href="javascript:;" class="">                         
+                            <span>Khoa</span>
+                            @*<span class="menu-arrow arrow_carrot-right"></span>*@
                         </a>
                         <ul class="sub">
-                            <li><a class="" href="general.html">Components</a></li>
-                            <li><a class="" href="buttons.html">Buttons</a></li>
-                            <li><a class="" href="grids.html">Grids</a></li>
+                            <li><a class="" href="general.html">Danh sách Khoa</a></li>                          
                         </ul>
                     </li>
                     <li>
                         <a class="" href="widgets.html">
-                            <i class="icon_genius"></i>
-                            <span>Widgets</span>
+                            @*<i class="icon_genius"></i>*@
+                            <span>Chuyên Ngành</span>
                         </a>
                     </li>
                     <li>
-                        <a class="" href="chart-chartjs.html">
-                            <i class="icon_piechart"></i>
-                            <span>Charts</span>
+                        <a class="" href="chart-chartjs.html">                           
+                            <span>Chương trình học</span>
 
                         </a>
 
                     </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:;" class="">
-                            <i class="icon_table"></i>
-                            <span>Tables</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
-                        </a>
-                        <ul class="sub">
-                            <li><a class="" href="basic_table.html">Basic Table</a></li>
-                        </ul>
-                    </li>
-
                     <li class="sub-menu ">
-                        <a href="javascript:;" class="">
-                            <i class="icon_documents_alt"></i>
-                            <span>Pages</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
+                        <a href="javascript:;" class="">                       
+                            <span>Pages</span>                          
                         </a>
                         <ul class="sub">
                             <li><a class="" href="profile.html">Profile</a></li>
@@ -242,7 +222,7 @@
 
         <footer class="border-top footer text-muted">
             <div class="container">
-                &copy; 2020 - StudyProgram - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                
             </div>
         </footer>
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
