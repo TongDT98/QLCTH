@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace StudyProgram.Models
 {
-    public class Course
+    public class Course:BaseModels
     {  
         public int CourseId { get; set; }
         public string Name { get; set; }

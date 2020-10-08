@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace StudyProgram.Models
 {
-    public class System_MasterData
+    public class System_MasterData: BaseModels
     {
-        public int Id { get; set; }
+       
         public string NameVN { get; set; }
         public string NameEN { get; set; }
         public string Groupid { get; set; }

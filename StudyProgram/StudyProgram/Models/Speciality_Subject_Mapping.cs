@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace StudyProgram.Models
 {
-    public class Speciality_Subject_Mapping
+    public class Speciality_Subject_Mapping: BaseModels
     {
-        public int Id { get; set; }
+       
         public string SpecialityId { get; set; }
         public string SubjectId { get; set; }
     }

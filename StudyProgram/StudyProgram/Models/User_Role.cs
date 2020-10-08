@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace StudyProgram.Models
 {
-    public class User_Role
+    public class User_Role: BaseModels
     {
-        public int Id { get; set; }
+        
         public string UserId { get; set; }
         public string RoleId { get; set; }
     }

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace StudyProgram.Models
 {
-    public class Book
+    public class Book:BaseModels
     {
-        public int Id { get; set; }
+        
         public string BookId { get; set; }
         public string NameVN { get; set; }
         public string NameEN { get; set; }
