@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thăng long</title>
     <link rel="stylesheet" href="style.css">
-    
+
     <link rel="shortcut icon" href="img/favicon.png">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- bootstrap theme -->
@@ -17,20 +17,23 @@
     <!-- Custom styles -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
 
-<head>
+@*<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - StudyProgram</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-</head>
+</head>*@
 <style>
-    .render_body{
+    .pb-3{
         padding-bottom: 1rem !important;
-  margin-top:65px;
-  margin-left:63px;
+    margin-top:65px;
+    margin-left:63px;
     }
 </style>
 <body>
@@ -177,8 +180,7 @@
                             @*<span class="menu-arrow arrow_carrot-right"></span>*@
                         </a>
                         <ul class="sub">
-                            <li><a class="" href="form_component.html">Danh sách Khóa</a></li>
-                            <li><a class="" href="form_validation.html"></a></li>
+                            <li>@Html.ActionLink("Danh sach khóa", "Index", "Course")</li>
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -187,7 +189,8 @@
                             @*<span class="menu-arrow arrow_carrot-right"></span>*@
                         </a>
                         <ul class="sub">
-                            <li><a class="" href="general.html">Danh sách Khoa</a></li>                          
+                            @*<li><a class="" asp-action="Views\Faculty\Index">Danh sách Khoa</a></li>*@ 
+                            <li>@Html.ActionLink("Danh sach khoa","Index","Faculty")</li>
                         </ul>
                     </li>
                     <li>

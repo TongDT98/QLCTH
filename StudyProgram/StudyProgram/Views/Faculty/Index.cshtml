@@ -1,23 +1,73 @@
-﻿
+﻿@model IEnumerable<StudyProgram.Entity.Faculty>
+
 @{
     ViewData["Title"] = "Index";
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 <style>
-    .a{
-        margin-top:15px;
-        margin-left:60px;
+    .table, th, td {
+        border: 1px solid black;
     }
-    .head_top {
-        width: 100%;
-        height: 50px;
-        background :
+
+    .add-fa {
+        border: 2px solid #3A01DF;
+        border-radius: 25px 25px;
+        width: 150px;
+        margin-bottom: 5px;
     }
 </style>
-<h1>hehecaca</h1>
-<div class="a">
-  <div>
-
-  </div>
-    
+<div style="margin-top:100px;">
+    <h4 style="color:#4000FF;margin-bottom:5px;" class="pull-left">DANH SÁCH KHOA</h4>
+    <p>
+        <a asp-action="Create">
+            <div class="pull-right add-fa">
+    <p style="font-size:17px;margin-top:2px;margin-bottom:2px;text-align:center;"> Thêm mới Khoa</p>
+</div>
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FacultyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameVN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameEN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FacultyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameVN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameEN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 </div>

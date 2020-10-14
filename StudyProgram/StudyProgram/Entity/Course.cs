@@ -8,7 +8,7 @@ namespace StudyProgram.Entity
 {
     public class Course:BaseEntity
     {
-        public int CourseId { get; set; }
+        public string CourseId { get; set; }
         public string Name { get; set; }
         public DateTime CreateDate { get; set; }
         public string Description { get; set; }

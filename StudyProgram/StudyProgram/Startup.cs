@@ -25,8 +25,8 @@ namespace StudyProgram
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            services.AddDbContext<SPMContext>(item => item.UseSqlServer(Configuration.GetConnectionString("myconn")));
+            services.AddMvc();
+            services.AddDbContext<SPMContext>(item => item.UseSqlServer(Configuration.GetConnectionString("psm")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
