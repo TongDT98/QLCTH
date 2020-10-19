@@ -46,15 +46,11 @@ namespace StudyProgram.Controllers
         // GET: Speciality/Create
         public IActionResult Create()
         {
-            return PartialView("../Subject/_Create.cshtml");
-        }
-        public IActionResult DoCreate()
-        {
             return View();
         }
 
         // POST: Speciality/Create
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("SpecialityId,NameVN,NameEN,Desciption,Id,Isdeleted")] Speciality speciality)
