@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StudyProgram.DataContext;
+using StudyProgram.Service;
 
 namespace StudyProgram
 {
@@ -27,6 +28,10 @@ namespace StudyProgram
         {
             services.AddMvc();
             services.AddDbContext<SPMContext>(item => item.UseSqlServer(Configuration.GetConnectionString("psm")));
+            
+            //#region Scope
+            services.AddScoped<ISubjectService, SubjectService>();
+           // #region
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<StudyProgram.Entity.Subject>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>
+    <button type="button" class="btn btn-info btn-lg" onclick="showFormCreateSubject()">Thêm mới</button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Mã môn
+            </th>
+            <th>
+               Tên môn(TV)
+            </th>
+            <th>
+               Tên Môn (EN)
+            </th>
+            <th>
+             Mô Tả
+            </th>
+           
+            <th>
+                Hành động
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.SubjectId
+            </td>
+            <td>
+                @item.NameVN
+            </td>
+            <td>
+                @item.NameEN
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
+
+<script>
+    function showFormCreateSubject() {
+        $("#common-modal").load('/Subject/Create', function () {
+            $('#common-modal').modal("show");
+        });
+    }// End
+</script>
+

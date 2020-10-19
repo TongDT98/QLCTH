@@ -7,25 +7,29 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StudyProgram.DataContext;
 using StudyProgram.Entity;
+using StudyProgram.Service;
 
 namespace StudyProgram.Controllers
 {
-    public class SpecialityController : Controller
+    public class SubjectController : Controller
     {
         private readonly SPMContext _context;
 
-        public SpecialityController(SPMContext context)
+        public SubjectController(SPMContext context)
         {
             _context = context;
         }
 
-        // GET: Speciality
-        public async Task<IActionResult> Index()
+        // GET: Subject
+        public IActionResult Index()
         {
-            return View(await _context.Speciality.ToListAsync());
+            var _subjectService = new SubjectService(_context);
+            var data = _subjectService.GetAll();
+            return View(data);
         }
 
-        // GET: Speciality/Details/5
+        // GET: Subject/Details/5
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,42 +37,49 @@ namespace StudyProgram.Controllers
                 return NotFound();
             }
 
-            var speciality = await _context.Speciality
+            var subject = await _context.Subject
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (speciality == null)
+            if (subject == null)
             {
                 return NotFound();
             }
 
-            return View(speciality);
+            return View(subject);
         }
 
-        // GET: Speciality/Create
-        public IActionResult Create()
+        // GET: Subject/Create
+        public IActionResult Create(int id = 0)
         {
-            return PartialView("../Subject/_Create.cshtml");
+            Subject subject = new Subject();
+            return PartialView("../Subject/_Create", subject);
         }
-        public IActionResult DoCreate()
+        public IActionResult DoCreate(Subject model)
         {
-            return View();
+            try
+            {
+                var _subjectService = new SubjectService(_context);
+                var obj = _subjectService.Create(model);
+                return Json(new { isSuccess = true, data = obj });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { isSuccess = false, message = ex.Message });
+            }
         }
-
-        // POST: Speciality/Create
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SpecialityId,NameVN,NameEN,Desciption,Id,Isdeleted")] Speciality speciality)
+        public async Task<IActionResult> Create([Bind("SubjectId,NameVN,NameEN,Description,Id,Isdeleted")] Subject subject)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(speciality);
+                _context.Add(subject);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(speciality);
+            return View(subject);
         }
 
-        // GET: Speciality/Edit/5
+        // GET: Subject/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,22 +87,22 @@ namespace StudyProgram.Controllers
                 return NotFound();
             }
 
-            var speciality = await _context.Speciality.FindAsync(id);
-            if (speciality == null)
+            var subject = await _context.Subject.FindAsync(id);
+            if (subject == null)
             {
                 return NotFound();
             }
-            return View(speciality);
+            return View(subject);
         }
 
-        // POST: Speciality/Edit/5
+        // POST: Subject/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SpecialityId,NameVN,NameEN,Desciption,Id,Isdeleted")] Speciality speciality)
+        public async Task<IActionResult> Edit(int id, [Bind("SubjectId,NameVN,NameEN,Description,Id,Isdeleted")] Subject subject)
         {
-            if (id != speciality.Id)
+            if (id != subject.Id)
             {
                 return NotFound();
             }
@@ -100,12 +111,12 @@ namespace StudyProgram.Controllers
             {
                 try
                 {
-                    _context.Update(speciality);
+                    _context.Update(subject);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SpecialityExists(speciality.Id))
+                    if (!SubjectExists(subject.Id))
                     {
                         return NotFound();
                     }
@@ -116,10 +127,9 @@ namespace StudyProgram.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(speciality);
+            return View(subject);
         }
-
-        // GET: Speciality/Delete/5
+        
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -127,30 +137,30 @@ namespace StudyProgram.Controllers
                 return NotFound();
             }
 
-            var speciality = await _context.Speciality
+            var subject = await _context.Subject
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (speciality == null)
+            if (subject == null)
             {
                 return NotFound();
             }
 
-            return View(speciality);
+            return View(subject);
         }
 
-        // POST: Speciality/Delete/5
+        // POST: Subject/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var speciality = await _context.Speciality.FindAsync(id);
-            _context.Speciality.Remove(speciality);
+            var subject = await _context.Subject.FindAsync(id);
+            _context.Subject.Remove(subject);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SpecialityExists(int id)
+        private bool SubjectExists(int id)
         {
-            return _context.Speciality.Any(e => e.Id == id);
+            return _context.Subject.Any(e => e.Id == id);
         }
     }
 }

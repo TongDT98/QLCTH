@@ -1,0 +1,45 @@
+﻿@model StudyProgram.Entity.Subject
+<div class="modal-content modal-addorder__content modal-center" id="modify-order-content">
+    <h3 class="montserrat-bold title-create-order m-0 text-left d-block pt-0">Thông tin môn  <span class="close cs-pointer text-right  montserrat-bold" data-dismiss="modal" style="color: #0888b1; line-height: 32px">  <i class="fa fa-times" aria-hidden="true"></i></span></h3>
+    <form id="addSubject">
+        <div class="form-group">
+            <label for="SubjectId" class="control-label">SubjectId</label>
+            <input name="model.SubjectId" value="@Model.SubjectId" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="NameVN" class="control-label">NameVN</label>
+            <input name="model.NameVN" value="@Model.NameVN" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="NameEN" class="control-label">NameEN</label>
+            <input name="model.NameEN" value="@Model.NameEN" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="Description" class="control-label">Description</label>
+            <input name="model.Description" value="@Model.Description" class="form-control" />
+        </div>
+        <div class="modal-footer add-user-footer border-0 d-block w-100 pull-left">
+            <button type="button" class="btn coba-btn-close pull-left" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn coba-btn-save ml-5 pull-right" onclick="submitForm()">Lưu người dùng</button>
+        </div>
+    </form>
+</div>
+<script>
+    function submitForm() {
+        $.ajax({
+            url: "/Subject/DoCreate",
+            type: "post",
+            data: $('form').4(),
+            success: function (data) {
+                debugger;
+                if (data.isSuccess) {
+                    alert("lol");
+                } else {
+                    alert(data.message);
+                }
+            }, error: function () {
+
+            }
+        });
+    }
+</script>
