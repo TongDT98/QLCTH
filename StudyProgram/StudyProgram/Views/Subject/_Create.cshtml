@@ -7,7 +7,7 @@
             <input name="model.SubjectId" value="@Model.SubjectId" class="form-control" />
         </div>
         <div class="form-group">
-            <label for="NameVN" class="control-label">NameVN</label>
+            <label for="NameVN" class="control-label"> NameVN</label>
             <input name="model.NameVN" value="@Model.NameVN" class="form-control" />
         </div>
         <div class="form-group">
@@ -20,7 +20,7 @@
         </div>
         <div class="modal-footer add-user-footer border-0 d-block w-100 pull-left">
             <button type="button" class="btn coba-btn-close pull-left" data-dismiss="modal">Đóng</button>
-            <button type="button" class="btn coba-btn-save ml-5 pull-right" onclick="submitForm()">Lưu người dùng</button>
+            <button type="button" class="btn coba-btn-save ml-5 pull-right" onclick="submitForm()">Lưu môn học</button>
         </div>
     </form>
 </div>
@@ -29,11 +29,11 @@
         $.ajax({
             url: "/Subject/DoCreate",
             type: "post",
-            data: $('form').4(),
+            data: $('form').serialize(),
             success: function (data) {
                 debugger;
                 if (data.isSuccess) {
-                    alert("lol");
+                    alert("Lưu môn học");
                 } else {
                     alert(data.message);
                 }

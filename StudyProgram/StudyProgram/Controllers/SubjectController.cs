@@ -1,10 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using OfficeOpenXml;
 using StudyProgram.DataContext;
 using StudyProgram.Entity;
 using StudyProgram.Service;
@@ -18,6 +27,7 @@ namespace StudyProgram.Controllers
         public SubjectController(SPMContext context)
         {
             _context = context;
+
         }
 
         // GET: Subject
@@ -94,10 +104,52 @@ namespace StudyProgram.Controllers
             }
             return View(subject);
         }
-
+        //Import
+        public IActionResult Import()
+        {
+            return PartialView("../Subject/_Import");
+        }
+        [HttpPost]
+        public async Task<JsonResult> DoImportExcelAsync()
+        {
+            try
+            {
+                var _subjectService = new SubjectService(_context);
+                var file = HttpContext.Request.Form.Files[0];
+                var list = new List<Subject>();
+                using (var stream = new MemoryStream())
+                {
+                    await file.CopyToAsync(stream);
+                    using (var package = new ExcelPackage(stream))
+                    {
+                        ExcelWorksheet workSheet = package.Workbook.Worksheets[0];
+                        int totalRows = workSheet.Dimension.Rows;
+                        for (int i = 2; i <= totalRows; i++)
+                        {
+                            var subject = new Subject
+                            {
+                                Id = int.Parse(workSheet.Cells[i, 1].Value.ToString().Trim()),
+                                SubjectId = (string)(workSheet.Cells[i, 2]).Text,
+                                NameVN = (string)(workSheet.Cells[i, 3]).Text,
+                                NameEN = (string)(workSheet.Cells[i, 4]).Text,
+                            };
+                            list.Add(subject);
+                        }
+                    }
+                }
+                if (!list.Any()) return Json(new { status = true });
+                _subjectService.Import(list);
+                return Json(new { status = true });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Json(new { });
+        }
         // POST: Subject/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("SubjectId,NameVN,NameEN,Description,Id,Isdeleted")] Subject subject)
@@ -129,7 +181,7 @@ namespace StudyProgram.Controllers
             }
             return View(subject);
         }
-        
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

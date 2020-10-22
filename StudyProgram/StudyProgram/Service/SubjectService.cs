@@ -1,4 +1,5 @@
-﻿using StudyProgram.DataContext;
+﻿using Newtonsoft.Json;
+using StudyProgram.DataContext;
 using StudyProgram.Entity;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,10 @@ namespace StudyProgram.Service
     {
         Subject Create(Subject model);
         void Update(Subject model);
+        void Import(List<Subject> models);
     }
     public class SubjectService : ISubjectService
     {
-
-
-
         private readonly SPMContext _context;
         public SubjectService(SPMContext context)
         {
@@ -40,12 +39,39 @@ namespace StudyProgram.Service
 
         public Subject GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Subject.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Import(List<Subject> models)
+        {
+            var listAdd = new List<Subject>();
+            var listUpdate = new List<Subject>();
+            foreach (var item in models)
+            {
+                var obj = GetById(item.Id);
+                if (obj == null || item.Id == 0)
+                {
+                    listAdd.Add(item);
+                }
+                else
+                {
+                    var data = _context.Subject.Where(x => x.Id == item.Id).FirstOrDefault();
+                    if (data != null)
+                    {
+                        data.NameEN = item.NameEN;
+                        data.NameVN = item.NameVN;
+                        listUpdate.Add(data);
+                    }
+                }
+            }
+            _context.Subject.AddRange(listAdd);
+            _context.Subject.UpdateRange(listUpdate);
+            _context.SaveChanges();
         }
 
         public void Update(Subject model)
         {
-            throw new NotImplementedException();
+
         }
     }
 

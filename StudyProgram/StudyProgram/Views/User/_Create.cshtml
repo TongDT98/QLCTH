@@ -1,0 +1,41 @@
+﻿@model StudyProgram.Entity.User
+<div class="modal-content modal-center" id="modify-order-content">
+    <h3 class="montserrat-bold title-create-order m-0 text-left d-block pt-0">Thông tin người dùng  <span class="close cs-pointer text-right  montserrat-bold" data-dismiss="modal" style="color: #0888b1; line-height: 32px">  <i class="fa fa-times" aria-hidden="true"></i></span></h3>
+    <form id="addSubject">
+        <div class="form-group">
+            <label for="UserName" class="control-label">UserName</label>
+            <input name="model.UserName" value="@Model.UserName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="DisplayName" class="control-label">DisplayName</label>
+            <input name="model.DisplayName" value="@Model.DisplayName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="PassWord" class="control-label">PassWord</label>
+            <input name="model.PassWord" value="@Model.PassWord" class="form-control" />
+        </div>      
+        <div class="modal-footer add-user-footer border-0 d-block w-100 pull-left">
+            <button type="button" class="btn coba-btn-close pull-left" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn coba-btn-save ml-5 pull-right" onclick="submitForm()">Lưu người dùng</button>
+        </div>
+    </form>
+</div>
+<script>
+    function submitForm() {
+        $.ajax({
+            url: "/User/DoCreate",
+            type: "post",
+            data: $('form').serialize(),
+            success: function (data) {
+                debugger;
+                if (data.isSuccess) {
+                    alert("Lưu người dùng");
+                } else {
+                    alert(data.message);
+                }
+            }, error: function () {
+
+            }
+        });
+    }
+</script>

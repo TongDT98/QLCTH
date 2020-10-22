@@ -1,73 +1,64 @@
-﻿@model IEnumerable<StudyProgram.Entity.Subject>
+﻿@model IEnumerable<StudyProgram.Entity.User>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<p>
-    <button type="button" class="btn btn-info btn-lg" onclick="showFormCreateSubject()">Thêm mới</button>
-</p>
-<span>
-    <button type="button" onclick="showFormImportSubject()">Import</button>
-</span>
+
+    <p>
+        <button type="button" class="btn btn-info btn-lg" onclick="showFormCreateSubject()">Thêm mới</button>
+    </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-               Mã môn
+               Tên đăng nhập
             </th>
             <th>
-               Tên môn(TV)
+                Tên đầy đủ            
             </th>
             <th>
-               Tên Môn (EN)
+                Mật khẩu
+               
             </th>
             <th>
-             Mô Tả
+                Trạng thái
+               
             </th>
-           
-            <th>
-                Hành động
-            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-                @item.SubjectId
+                @item.UserName
             </td>
             <td>
-                @item.NameVN
+                @item.DisplayName
             </td>
             <td>
-                @item.NameEN
+               @item.PassWord
             </td>
             <td>
-                @item.Description
+                @item.Isdeleted
+
+
+
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
-
         </tr>
 }
     </tbody>
 </table>
-
 <script>
-    function showFormCreateSubject() {
-        $("#common-modal").load('/Subject/Create', function () {
+    function showFormCreateUser() {
+        $("#common-modal").load('/User/Create', function () {
             $('#common-modal').modal("show");
         });
-    }
-
-    function showFormImportSubject() {
-        $("#common-modal").load('/Subject/Import', function () {
-            $('#common-modal').modal("show");
-        });
-    }
+    }// End
 </script>
-

@@ -29,9 +29,10 @@ namespace StudyProgram
             services.AddMvc();
             services.AddDbContext<SPMContext>(item => item.UseSqlServer(Configuration.GetConnectionString("psm")));
             
-            //#region Scope
+            #region dfgdfgdfgdfg
             services.AddScoped<ISubjectService, SubjectService>();
-           // #region
+            services.AddScoped<IUserService, UserService>();
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
