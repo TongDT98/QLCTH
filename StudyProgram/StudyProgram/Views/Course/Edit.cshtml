@@ -7,43 +7,26 @@
 
     <style>
         .form__editCourse {
-            width: 500px;
-            height: 100vh;
+            background-color: #eee;
+            width: 600px;
+            height: 400px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             margin: 0 auto;
         }
 
-        .form-group {
+        .form-group-c {
+            width: 90%;
             display: flex;
             flex-direction: column;
-            margin: .5rem;
-        }
-
-            .form-group > label {
-                font-size: 1rem;
-                margin-left: 1rem;
-            }
-
-            .form-group > .input {
-                padding: 1rem;
-                width: 100%;
-                margin: 0 auto;
-                border: none;
-                outline: none;
-                border-radius: 5px;
-            }
-
-        .form__btn {
-            padding: 1rem;
-            font-size: 1rem;
+            margin: 1rem auto;
         }
 
         .back {
             margin-top: 1.5rem;
             border: 1px solid lightgray;
-            padding: 1rem;
+            padding: .5rem;
             display: inline-block;
             background-color: black;
         }
@@ -63,28 +46,28 @@
     <div class="col-md-4">
         <form asp-action="Edit" class="form__editCourse">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group-c">
                 <label asp-for="CourseId" class="control-label"></label>
                 <input asp-for="CourseId" class="form-control" />
                 <span asp-validation-for="CourseId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group-c">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group-c">
                 <label asp-for="CreateDate" class="control-label"></label>
                 <input asp-for="CreateDate" class="form-control" />
                 <span asp-validation-for="CreateDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group-c">
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
+            <div class="form-group-c">
                 <input type="submit" value="Save" class="btn btn-primary form__btn" />
             </div>
         </form>
