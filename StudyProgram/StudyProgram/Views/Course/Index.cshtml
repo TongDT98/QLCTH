@@ -8,40 +8,40 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <button type="button" class="btn btn-info btn-lg" onclick="showFormCreateCourse()">Thêm mới</button>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CourseId)
+               Mã Khóa
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Tên
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreateDate)
+                Ngày Tháng
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                Mô tả
             </th>
-            <th></th>
+            <th>Hành Động</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CourseId)
+                @item.CourseId
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @item.Name;
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
+                @item.CreateDate
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @item.Description
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -52,3 +52,10 @@
 }
     </tbody>
 </table>
+<script>
+    function showFormCreateCourse() {
+        $("#common-modal").load('/Course/Create', function () {
+            $('#common-modal').modal("show");
+        });
+    }
+</script>

@@ -10,6 +10,7 @@ namespace StudyProgram.Entity
         public string SpecialityId { get; set; }
         public string NameVN { get; set; }
         public string NameEN { get; set; }
+        public int Credit { get; set; }
         public string Desciption { get; set; }
     }
 }

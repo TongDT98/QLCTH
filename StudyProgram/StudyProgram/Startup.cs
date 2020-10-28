@@ -32,6 +32,8 @@ namespace StudyProgram
             #region dfgdfgdfgdfg
             services.AddScoped<ISubjectService, SubjectService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICourseService, CourseService>();
+            services.AddScoped<ISpecialityService, SpecialityService>();
             #endregion
         }
 

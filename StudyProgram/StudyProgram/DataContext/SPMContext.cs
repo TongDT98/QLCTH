@@ -11,6 +11,7 @@ namespace StudyProgram.DataContext
         public DbSet<Course> Course { get; set; }
         public DbSet<Course_Faculty_Mapping> Course_Faculty_Mapping { get; set; }
         public DbSet<Faculty> Faculty { get; set; }
+        public DbSet<Course_Speciality_Mapping> Course_Speciality_Mapping { get; set; }
         public DbSet<Entity.Faculty_Speciality_Mapping> Faculty_Speciality_Mapping { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Speciality> Speciality { get; set; }

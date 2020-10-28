@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudyProgram.DataContext;
 
 namespace StudyProgram.Migrations
 {
     [DbContext(typeof(SPMContext))]
-    partial class SPMContextModelSnapshot : ModelSnapshot
+    [Migration("20201028085524_Course_Speciality_Mapping Migration")]
+    partial class Course_Speciality_MappingMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

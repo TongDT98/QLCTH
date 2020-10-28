@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StudyProgram.DataContext;
 using StudyProgram.Entity;
+using StudyProgram.Service;
 
 namespace StudyProgram.Controllers
 {
@@ -20,9 +21,42 @@ namespace StudyProgram.Controllers
         }
 
         // GET: Speciality
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Speciality.ToListAsync());
+            var _specialityService = new SpecialityService(_context);
+            var data = _specialityService.GetAll();
+            return View(data);
+        }
+        //create
+        public IActionResult Create(int id = 0)
+        {
+            Speciality speciality = new Speciality();
+            return PartialView("../Speciality/_Create", speciality);
+        }
+        public IActionResult DoCreate(Speciality model)
+        {
+            try
+            {
+                var _specialityService = new SpecialityService(_context);
+                var obj = _specialityService.Create(model);
+                return Json(new { isSuccess = true, data = obj });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { isSuccess = false, message = ex.Message });
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("SpecialityId,NameVN,NameEN,Description,Id,Isdeleted")] Speciality speciality)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(speciality);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(speciality);
         }
 
         // GET: Speciality/Details/5
@@ -40,27 +74,6 @@ namespace StudyProgram.Controllers
                 return NotFound();
             }
 
-            return View(speciality);
-        }
-
-        // GET: Speciality/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Speciality/Create
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SpecialityId,NameVN,NameEN,Desciption,Id,Isdeleted")] Speciality speciality)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(speciality);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
             return View(speciality);
         }
 

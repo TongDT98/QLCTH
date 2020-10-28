@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StudyProgram.DataContext;
 using StudyProgram.Entity;
+using StudyProgram.Service;
 
 namespace StudyProgram.Controllers
 {
@@ -20,10 +21,13 @@ namespace StudyProgram.Controllers
         }
 
         // GET: Course
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Course.ToListAsync());
+            var _courseService = new CourseService(_context);
+            var data = _courseService.GetAll();
+            return View(data);
         }
+       
 
         // GET: Course/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -43,15 +47,25 @@ namespace StudyProgram.Controllers
             return View(course);
         }
 
-        // GET: Course/Create
-        public IActionResult Create()
+        // Get:Course/create
+        public IActionResult Create(int id = 0)
         {
-            return View();
+            Course course = new Course();
+            return PartialView("../Course/_Create", course);
         }
-
-        // POST: Course/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        public IActionResult DoCreate(Course model)
+        {
+            try
+            {
+                var _courseService = new CourseService(_context);
+                var obj = _courseService.Create(model);
+                return Json(new { isSuccess = true, data = obj });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { isSuccess = false, message = ex.Message });
+            }
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CourseId,Name,CreateDate,Description,Id,Isdeleted")] Course course)

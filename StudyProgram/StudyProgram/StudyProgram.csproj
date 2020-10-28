@@ -12,6 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201027143229_addingrowSpecial.cs" />
+    <Compile Remove="Migrations\20201027143229_addingrowSpecial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\assets\chart-master\.gitignore" />
     <None Include="wwwroot\assets\chart-master\Chart.js" />
     <None Include="wwwroot\assets\chart-master\Chart.min.js" />

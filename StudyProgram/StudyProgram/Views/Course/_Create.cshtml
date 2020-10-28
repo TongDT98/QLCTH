@@ -1,0 +1,93 @@
+﻿@model StudyProgram.Entity.Course
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = null;
+}
+
+<style>
+    .form__createCourse {
+        background-color: #eee;
+        width: 600px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    .form-group-c {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        margin: 1rem auto;
+    }
+
+    .back {
+        margin-top: 1.5rem;
+        border: 1px solid lightgray;
+        padding: .5rem;
+        display: inline-block;
+        background-color: black;
+    }
+
+        .back > a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+</style>
+
+<h1>Create</h1>
+
+<h4>Course</h4>
+<hr />
+<div class="modal-content modal-addorder__content modal-center modal-create" id="modify-order-content">
+    <h3 class="montserrat-bold title-create-order m-0 text-left d-block pt-0">Thông tin môn  <span class="close cs-pointer text-right  montserrat-bold" data-dismiss="modal" style="color: #0888b1; line-height: 32px">  <i class="fa fa-times" aria-hidden="true"></i></span></h3>
+    <form id="addCourse">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label for="CourseId" class="control-label">CourseID</label>
+            <input name="model.CourseId" value="@Model.CourseId" class="form-control" />
+            <span asp-validation-for="CourseId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Name" class="control-label"> Name</label>
+            <input name="model.Name" value="@Model.Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="CreateDate" class="control-label">CreateDate</label>
+            <input name="model.CreateDate" value="@Model.CreateDate" class="form-control" />
+            <span asp-validation-for="CreateDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Description" class="control-label">Description</label>
+            <input name="model.Description" value="@Model.Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="modal-footer add-user-footer border-0 d-block w-100 pull-left">
+            <button type="button" class="btn coba-btn-close pull-left btn-danger" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn coba-btn-save ml-5 pull-right btn-primary" onclick="submitForm()">Lưu môn học</button>
+        </div>
+    </form>
+</div>
+<script>
+    function submitForm() {
+        $.ajax({
+            url: "/Course/DoCreate",
+            type: "post",
+            data: $('form').serialize(),
+            success: function (data) {
+                debugger;
+                if (data.isSuccess) {
+                    alert("Lưu Khóa");
+                } else {
+                    alert(data.message);
+                }
+            }, error: function () {
+
+            }
+        });
+    }
+</script>
