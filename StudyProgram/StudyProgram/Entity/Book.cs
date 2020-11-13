@@ -10,7 +10,7 @@ namespace StudyProgram.Entity
     public class Book:BaseEntity
     {
       
-        public string BookId { get; set; }
+        public string BookCode { get; set; }
         public string NameVN { get; set; }
         public string NameEN { get; set; }
         public string Author { get; set; }

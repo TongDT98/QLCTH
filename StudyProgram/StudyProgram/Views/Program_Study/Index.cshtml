@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .single {
+        width: 20rem;
+    }
+</style>
+<script src="~/js/ProgramStudy/program_study.js"></script>
+@model StudyProgram.Entity.Course
+@{
+    <form asp-controller="Program_Study" asp-action="Index" method="post" class="form-horizontal" role="form">
+        <div class="form-group">
+            <div class="row">
+                <div class="" asp-validation-summary="ModelOnly">
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                    <label asp-for="CourseId" class="control-label"></label>
+                </div>
+                <select id="courses-dd" class="single" onchange="getSpecialitiesByCourseId()">
+                    <option>lua chon</option>
+                    @foreach (var item in ViewBag.ListofCourse)
+                    {
+                        <option value="@item.Value">@item.Text </option>
+                    }
+                </select>
+                <select id="specialities-dd" class="single">
+                </select>
+            </div>
+        </div>
+    </form>
+}

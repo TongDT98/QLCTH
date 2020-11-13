@@ -128,10 +128,10 @@ namespace StudyProgram.Controllers
                         {
                             var subject = new Subject
                             {
-                                Id = int.Parse(workSheet.Cells[i, 1].Value.ToString().Trim()),
+                                Id = workSheet.Cells[i, 1].Value != null ? int.Parse(workSheet.Cells[i, 1].Value.ToString().Trim()) : 0,
                                 SubjectId = (string)(workSheet.Cells[i, 2]).Text,
                                 NameVN = (string)(workSheet.Cells[i, 3]).Text,
-                                NameEN = (string)(workSheet.Cells[i, 4]).Text,
+                                Credit = int.Parse(workSheet.Cells[i, 4].Value.ToString().Trim()),
                             };
                             list.Add(subject);
                         }

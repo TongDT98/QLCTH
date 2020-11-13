@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace StudyProgram.Models
 {
-    public class User_Role: BaseModels
+    public class RoleDTO:BaseModels
     {
         
-        public string UserId { get; set; }
-        public string RoleId { get; set; }
+        public string NameVN { get; set; }
+        public string NameEN { get; set; }
     }
 }

@@ -7,25 +7,30 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StudyProgram.DataContext;
 using StudyProgram.Entity;
+using StudyProgram.IService;
 using StudyProgram.Service;
+using AutoMapper;
+using StudyProgram.Models;
 
 namespace StudyProgram.Controllers
 {
     public class CourseController : Controller
     {
         private readonly SPMContext _context;
+        private readonly IMapper _mapper;
 
-        public CourseController(SPMContext context)
+        public CourseController(SPMContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: Course
         public IActionResult Index()
         {
-            var _courseService = new CourseService(_context);
-            var data = _courseService.GetAll();
-            return View(data);
+            var _courseService = new CourseService(_context);           
+            var _courseDTO = _mapper.Map<List<CourseDTO>>(_courseService.GetAll());
+            return View(_courseDTO);
         }
        
 

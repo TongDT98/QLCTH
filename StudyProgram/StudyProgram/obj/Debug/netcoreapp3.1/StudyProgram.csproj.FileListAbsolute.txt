@@ -156,8 +156,6 @@ D:\QLCTH\StudyProgram\StudyProgram\bin\Debug\netcoreapp3.1\runtimes\win\lib\netc
 D:\QLCTH\StudyProgram\StudyProgram\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\QLCTH\StudyProgram\StudyProgram\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\QLCTH\StudyProgram\StudyProgram\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\QLCTH\StudyProgram\StudyProgram\obj\Debug\netcoreapp3.1\StudyProgram.csproj.CoreCompileInputs.cache
-D:\QLCTH\StudyProgram\StudyProgram\obj\Debug\netcoreapp3.1\StudyProgram.MvcApplicationPartsAssemblyInfo.cache
 D:\QLCTH\StudyProgram\StudyProgram\obj\Debug\netcoreapp3.1\StudyProgram.RazorAssemblyInfo.cache
 D:\QLCTH\StudyProgram\StudyProgram\obj\Debug\netcoreapp3.1\StudyProgram.RazorAssemblyInfo.cs
 D:\QLCTH\StudyProgram\StudyProgram\obj\Debug\netcoreapp3.1\StudyProgram.AssemblyInfoInputs.cache
@@ -209,3 +207,8 @@ D:\QLCTH\StudyProgram\StudyProgram\obj\Debug\netcoreapp3.1\StudyProgram.genrunti
 D:\QLCTH\StudyProgram\StudyProgram\obj\Debug\netcoreapp3.1\Razor\Views\Speciality\_Create.cshtml.g.cs
 D:\QLCTH\StudyProgram\StudyProgram\obj\Debug\netcoreapp3.1\StudyProgram.csprojAssemblyReference.cache
 D:\QLCTH\StudyProgram\StudyProgram\obj\Debug\netcoreapp3.1\Razor\Views\Course\_Create.cshtml.g.cs
+D:\QLCTH\StudyProgram\StudyProgram\obj\Debug\netcoreapp3.1\StudyProgram.csproj.CoreCompileInputs.cache
+D:\QLCTH\StudyProgram\StudyProgram\obj\Debug\netcoreapp3.1\StudyProgram.MvcApplicationPartsAssemblyInfo.cache
+D:\QLCTH\StudyProgram\StudyProgram\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\QLCTH\StudyProgram\StudyProgram\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\QLCTH\StudyProgram\StudyProgram\obj\Debug\netcoreapp3.1\Razor\Views\Program_Study\Index.cshtml.g.cs

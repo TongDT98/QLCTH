@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace StudyProgram.Models
 {
-    public class User_Detail: BaseModels
+    public class User_DetailDTO: BaseModels
     {
      
         public string UserId { get; set; }

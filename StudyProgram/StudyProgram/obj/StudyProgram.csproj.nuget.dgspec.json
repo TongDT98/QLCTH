@@ -38,6 +38,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "EPPlus": {
               "target": "Package",
               "version": "[4.5.2.1, )"
@@ -71,6 +75,10 @@
             "NPOI": {
               "target": "Package",
               "version": "[2.5.1, )"
+            },
+            "System.Linq": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [

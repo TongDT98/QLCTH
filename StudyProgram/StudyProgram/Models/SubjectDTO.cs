@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 
 namespace StudyProgram.Models
 {
-    public class Faculty : BaseModels
-    {         
-        public string FacultyId { get; set; }
+    public class SubjectDTO: BaseModels
+    {      
+        public string SubjectId { get; set; }
         public string NameVN { get; set; }
         public string NameEN { get; set; }
+        public int Creadit { get; set; }
         public string Description { get; set; }
     }
 }

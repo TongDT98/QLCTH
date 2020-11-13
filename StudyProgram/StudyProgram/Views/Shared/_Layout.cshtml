@@ -18,7 +18,12 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
-
+    @*//*@
+    <!-- Bootstrap CSS -->
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">*@
+    <!-- Select2 CSS -->
+    @*<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />*@
+    <link href="~/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <section id="container" class="">
@@ -160,7 +165,7 @@
                         </a>
 
                     </li>
-                   
+
                 </ul>
                 <!-- sidebar menu end-->
             </div>
@@ -193,7 +198,16 @@
         <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
         <!--custome script for all page-->
         <script src="js/scripts.js"></script>
-
+        <!-- jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Select2 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+        <script src="~/js/ProgramStudy/select2.min.js"></script>
+        <script>
+            $(".single").select2({
+                allowClear: true
+            });
+        </script>
 
 </body>
 </html>

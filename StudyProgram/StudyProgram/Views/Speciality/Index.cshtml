@@ -1,4 +1,4 @@
-﻿@model IEnumerable<StudyProgram.Entity.Speciality>
+﻿@model SpeDTO
 
 @{
     ViewData["Title"] = "Index";
@@ -14,41 +14,37 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SpecialityId)
+                Mã Chuyên Ngành
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NameVN)
+              Tên Chuyên Ngành(TV)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NameEN)
+                Tên Chuyên Ngành(TA)
             </th>
+            <th>Mô tả</th>          
             <th>
-                @Html.DisplayNameFor(model => model.Desciption)
+              Hành động
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Isdeleted)
-            </th>
-            <th></th>
+           
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Specialities) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.SpecialityId)
+                @item.SpecialityId
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NameVN)
+                @item.NameVN
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NameEN)
+                @item.NameEN
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Desciption)
+                @item.Desciption
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Isdeleted)
-            </td>
+           
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

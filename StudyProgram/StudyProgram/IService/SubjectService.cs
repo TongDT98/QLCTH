@@ -58,7 +58,8 @@ namespace StudyProgram.Service
                     var data = _context.Subject.Where(x => x.Id == item.Id).FirstOrDefault();
                     if (data != null)
                     {
-                        data.NameEN = item.NameEN;
+                        //data.NameEN = item.NameEN;
+                        data.Credit = item.Credit;
                         data.NameVN = item.NameVN;
                         listUpdate.Add(data);
                     }

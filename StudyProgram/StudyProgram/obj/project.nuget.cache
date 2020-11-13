@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "0TjEYD+CfIdkvCiWEgtr7RGQhaQeD/xixyRLk8/9dpe0oTo/VkYwusZywSPZ62PbtxXExRn9kL75jLjE99dd1w==",
+  "dgSpecHash": "PO2HRCJFEDNHHkjHoiV0WEpojVYASpcCU6bBb1A99q2C/qZGSRUx/dcfAMvm+kNGDtCSv4iorfXkQQURkBkskA==",
   "success": true,
   "projectFilePath": "D:\\QLCTH\\StudyProgram\\StudyProgram\\StudyProgram.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Laptop88\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\Laptop88\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\Laptop88\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Laptop88\\.nuget\\packages\\epplus\\4.5.2.1\\epplus.4.5.2.1.nupkg.sha512",
     "C:\\Users\\Laptop88\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

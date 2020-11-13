@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace StudyProgram.Models
 {
-    public class Faculty_Speciality_Mapping:BaseModels
+    public class Faculty_Speciality_MappingDTO:BaseModels
     {
 
         public string FacultyId { get; set; }

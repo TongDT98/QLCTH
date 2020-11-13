@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudyProgram.DataContext;
 
 namespace StudyProgram.Migrations
 {
     [DbContext(typeof(SPMContext))]
-    partial class SPMContextModelSnapshot : ModelSnapshot
+    [Migration("20201029112223_addcredit")]
+    partial class addcredit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace StudyProgram.Migrations
                     b.Property<string>("Author")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BookCode")
+                    b.Property<string>("BookId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")

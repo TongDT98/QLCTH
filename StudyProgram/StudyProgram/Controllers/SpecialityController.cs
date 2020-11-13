@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StudyProgram.DataContext;
 using StudyProgram.Entity;
+using StudyProgram.IService;
+using StudyProgram.Models;
 using StudyProgram.Service;
 
 namespace StudyProgram.Controllers
@@ -14,9 +17,11 @@ namespace StudyProgram.Controllers
     public class SpecialityController : Controller
     {
         private readonly SPMContext _context;
+        private readonly IMapper _mapper;
 
-        public SpecialityController(SPMContext context)
+        public SpecialityController(SPMContext context, IMapper mapper)
         {
+            _mapper = mapper;
             _context = context;
         }
 
@@ -24,8 +29,11 @@ namespace StudyProgram.Controllers
         public IActionResult Index()
         {
             var _specialityService = new SpecialityService(_context);
-            var data = _specialityService.GetAll();
-            return View(data);
+            var _courseService = new CourseService(_context);
+            var _speDTO = new SpeDTO();
+             _speDTO.Specialities= _mapper.Map<List<SpecialityDTO>>(_specialityService.GetAll());
+            _speDTO.Courses = _mapper.Map<List<CourseDTO>>(_courseService.GetAll());
+            return View(_speDTO);
         }
         //create
         public IActionResult Create(int id = 0)

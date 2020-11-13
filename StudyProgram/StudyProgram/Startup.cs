@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StudyProgram.DataContext;
 using StudyProgram.Service;
+using AutoMapper;
+using StudyProgram.IService;
 
 namespace StudyProgram
 {
@@ -28,14 +30,18 @@ namespace StudyProgram
         {
             services.AddMvc();
             services.AddDbContext<SPMContext>(item => item.UseSqlServer(Configuration.GetConnectionString("psm")));
-            
+
             #region dfgdfgdfgdfg
+            services.AddControllers();
+            // Auto Mapper Configurations
+            services.AddAutoMapper(typeof(Startup));
             services.AddScoped<ISubjectService, SubjectService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<ISpecialityService, SpecialityService>();
             #endregion
         }
+      
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
